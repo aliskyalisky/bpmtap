@@ -4,14 +4,14 @@ interface Props {
   count: number;
   setCount: (count: number) => void;
   timeArray: Array<number>;
-  setTimeArray: (timeArray: number) => void;
+  setTimeArray: (timeArray: Array<number>) => void;
 
 }
 
 export const Button: React.FC<Props> = ({setCount, count, timeArray, setTimeArray}) => {
   console.log(timeArray);
   for (let i=0; i>10; i++) {
-    setTimeArray(i);
+    setTimeArray([...timeArray, i]);
     console.log(timeArray);
 
   }
