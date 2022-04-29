@@ -15,21 +15,24 @@ export const Button: React.FC<Props> = ({setCount, count, timeArray, setTimeArra
 const clickd = () => {
   setCount(count + 1)
   setTimeArray([...timeArray, Date.now()]);
-  const intervals = timeArray
-  .map((item, index) => {
-    if (index === 0) {
-      return 400;
-    }
-    return timeArray[index] - timeArray[index - 1]
-  })
-  .filter(x => x > 0);
-
-  const average = intervals.reduce((a,b) => a + b, 0) / timeArray.length;
-
-  const bpm = 60 / average * 1000;
-  
-  console.log(bpm);
 };
+
+const intervals = timeArray
+.map((item, index) =>  timeArray[index] - timeArray[index - 1]
+)
+.filter(x => (x > 0));
+
+console.log('pituus', intervals)
+
+if (intervals.length > 0){
+    const average = intervals.reduce((a,b) => a + b, 0) / intervals.length;
+      console.log('avh', average)
+      const bpm = 60 / average * 1000
+;       console.log(bpm)        ;
+}
+
+
+
     return (
       <div className="Button">
           <button type="button" className="tapbtn" onClick={clickd}><h1>{count}</h1></button>
