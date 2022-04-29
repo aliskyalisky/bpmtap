@@ -9,8 +9,7 @@ interface Props {
 export const StatDisplay: React.FC<Props> = ({count}) => {
     return(
         <div>
-            <p>{count + 5}</p>
-            <p>lelelel</p>
+            <p>{count}</p>
         </div>
     )
 }
